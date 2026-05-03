@@ -1,1 +1,14 @@
 
+----
+ssh key enable process in local steps
+
+ssh-keygen -t ed25519 -C "pymahesh16@gmail.com" => C:\Users\Admin/.ssh/id_ed25519
+
+open new powershell and Get-Service -Name ssh-agent | Set-Service -StartupType Manual
+Start-Service ssh-agent
+ssh-add $HOME\.ssh\id_ed25519
+Get-Content $HOME\.ssh\id_ed25519.pub | Set-Clipboard [it copies the ssh use ctrl v]
+github => setting =>ssh/gpg key => add new ssh = from above command paste here ssh key
+git remote set-url origin git@github.com:pymahesh16@gmail.com/REPOSITORY.git
+git config --global user.email "pymahesh16@gmail.com" ; 
+git config --global user.name "pymahesh16-blip"
